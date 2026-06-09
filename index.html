@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>暗黑4死灵法师装备升级指引</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__scrim"></div>
+      <nav class="topbar" aria-label="页面导航">
+        <a href="#builds">流派</a>
+        <a href="#route">升级路线</a>
+        <a href="#gear">装备检索</a>
+        <a href="#sources">资料来源</a>
+      </nav>
+      <div class="hero__content">
+        <p class="eyebrow">暗黑破坏神 4 · 死灵法师 · 赛季服</p>
+        <h1>装备升级可视化指引</h1>
+        <p class="hero__copy">
+          面向已能刷折磨的死灵账号：按流派看打法、必备装备、词条、精造目标和刷装地点。
+        </p>
+        <div class="hero__meta" aria-label="资料基准">
+          <span>第13赛季资料口径</span>
+          <span>有资料片</span>
+          <span>中文装备路线</span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="overview" aria-labelledby="overview-title">
+        <div>
+          <p class="section-kicker">总览</p>
+          <h2 id="overview-title">先选目标，再追装备</h2>
+        </div>
+        <div class="summary-grid" id="summaryGrid"></div>
+      </section>
+
+      <section class="controls" aria-label="筛选和搜索">
+        <div class="searchbox">
+          <label for="searchInput">搜索流派、装备、Boss 或词条</label>
+          <input id="searchInput" type="search" placeholder="例如：血涌、孟德恩、Varshan、爆伤" />
+          <button class="reset-button" id="resetFilters" type="button">重置筛选</button>
+        </div>
+        <div class="filter-groups">
+          <div>
+            <span class="filter-label">用途</span>
+            <div class="chips" id="purposeFilters"></div>
+          </div>
+          <div>
+            <span class="filter-label">成型难度</span>
+            <div class="chips" id="difficultyFilters"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="builds" class="layout" aria-label="流派详情">
+        <aside class="build-list">
+          <div class="panel-heading">
+            <span class="section-kicker">Builds</span>
+            <strong>主流强势流派</strong>
+          </div>
+          <div id="buildList"></div>
+        </aside>
+
+        <article class="build-detail" id="buildDetail" aria-live="polite"></article>
+      </section>
+
+      <section id="route" class="section-band" aria-labelledby="route-title">
+        <div class="section-head">
+          <p class="section-kicker">Upgrade Route</p>
+          <h2 id="route-title">已能刷折磨时的升级顺序</h2>
+        </div>
+        <div class="timeline" id="upgradeRoute"></div>
+      </section>
+
+      <section id="gear" class="section-band" aria-labelledby="gear-title">
+        <div class="section-head">
+          <p class="section-kicker">Gear Finder</p>
+          <h2 id="gear-title">按装备查流派和来源</h2>
+        </div>
+        <div class="gear-tools">
+          <input id="gearSearchInput" type="search" placeholder="输入装备名、Boss、流派名" />
+        </div>
+        <div class="gear-table-wrap">
+          <table class="gear-table">
+            <thead>
+              <tr>
+                <th>装备</th>
+                <th>适用流派</th>
+                <th>用途</th>
+                <th>目标刷取</th>
+              </tr>
+            </thead>
+            <tbody id="gearTable"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="sources" class="sources" aria-labelledby="sources-title">
+        <div>
+          <p class="section-kicker">Sources</p>
+          <h2 id="sources-title">资料来源与维护说明</h2>
+        </div>
+        <ul id="sourceList"></ul>
+      </section>
+    </main>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
