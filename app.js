@@ -72,7 +72,7 @@
               <dd>${escapeHtml(item.kind)}</dd>
             </div>
             <div>
-              <dt>威能/作用</dt>
+              <dt>具体威能描述</dt>
               <dd>${escapeHtml(item.power)}</dd>
             </div>
             <div>
@@ -106,7 +106,7 @@
 
       <section class="gear-list-block">
         <h3>装备清单</h3>
-        <p class="hint">点开每一件装备，可以看到威能/作用和具体获取地点。</p>
+        <p class="hint">点开每一件装备，可以看到具体威能描述、触发逻辑和获取地点。</p>
         <div class="gear-list">
           ${build.gear.map(renderGearItem).join("")}
         </div>
