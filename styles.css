@@ -47,6 +47,10 @@ a {
   overflow: hidden;
 }
 
+.hero--compact {
+  min-height: 46vh;
+}
+
 .hero__scrim {
   position: absolute;
   inset: 0;
@@ -147,23 +151,220 @@ h3 {
   font-size: 13px;
 }
 
-main {
+.simple-app {
   display: grid;
   gap: 28px;
   padding: 0 clamp(14px, 3vw, 42px) 46px;
 }
 
-main > * {
+.simple-app > * {
   min-width: 0;
 }
 
-.overview,
-.controls,
-.layout,
-.section-band,
+.build-picker,
+.build-panel,
 .sources {
   width: min(1320px, 100%);
   margin-inline: auto;
+}
+
+.build-picker {
+  padding-top: 30px;
+}
+
+.build-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.build-choice {
+  display: grid;
+  gap: 8px;
+  min-height: 104px;
+  text-align: left;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--text);
+  padding: 16px;
+  cursor: pointer;
+  font: inherit;
+}
+
+.build-choice[aria-pressed="true"] {
+  border-color: var(--accent);
+  background: linear-gradient(135deg, rgba(214, 87, 60, 0.2), rgba(66, 182, 166, 0.08)), var(--panel);
+  box-shadow: inset 4px 0 0 var(--accent);
+}
+
+.build-choice strong {
+  font-size: 21px;
+}
+
+.build-choice span,
+.hint {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.build-panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.build-panel__head {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 22px;
+  background:
+    linear-gradient(135deg, rgba(214, 87, 60, 0.18), rgba(66, 182, 166, 0.08)),
+    var(--panel-2);
+  border-bottom: 1px solid var(--line);
+}
+
+.build-panel__head p {
+  color: #ded4c7;
+  max-width: 860px;
+}
+
+.quick-block,
+.gear-list-block {
+  padding: 20px 22px;
+  border-bottom: 1px solid var(--line);
+}
+
+.quick-block:last-child,
+.gear-list-block:last-child {
+  border-bottom: 0;
+}
+
+.quick-block ul {
+  margin: 12px 0 0;
+  padding-left: 20px;
+}
+
+.quick-block li {
+  margin: 8px 0;
+}
+
+.gear-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.gear-row {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #14161a;
+  overflow: hidden;
+}
+
+.gear-row__button {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+  min-height: 72px;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  text-align: left;
+  padding: 14px 16px;
+  cursor: pointer;
+  font: inherit;
+}
+
+.gear-row__button[aria-expanded="true"] {
+  background: rgba(66, 182, 166, 0.08);
+}
+
+.slot-name {
+  color: var(--accent-3);
+  font-weight: 800;
+}
+
+.gear-row__main {
+  display: grid;
+  gap: 2px;
+}
+
+.gear-row__main strong {
+  font-size: 18px;
+}
+
+.gear-row__main small {
+  color: var(--muted);
+}
+
+.priority {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 54px;
+  min-height: 28px;
+  padding: 4px 8px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.priority--must {
+  border-color: rgba(224, 113, 113, 0.7);
+  color: #ffd5d5;
+  background: rgba(224, 113, 113, 0.14);
+}
+
+.priority--recommended {
+  border-color: rgba(208, 163, 74, 0.7);
+  color: #ffe0a3;
+  background: rgba(208, 163, 74, 0.14);
+}
+
+.priority--alt {
+  border-color: rgba(66, 182, 166, 0.65);
+  color: #bff5ee;
+  background: rgba(66, 182, 166, 0.12);
+}
+
+.gear-row__details {
+  border-top: 1px solid var(--line);
+  padding: 14px 16px 16px 122px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.gear-row__details dl {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+}
+
+.gear-row__details div {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: 12px;
+}
+
+.gear-row__details dt {
+  color: var(--accent-2);
+  font-weight: 800;
+}
+
+.gear-row__details dd {
+  margin: 0;
+  color: #e4d9ca;
+}
+
+.simple-sources {
+  padding: 20px;
 }
 
 .overview {
@@ -501,7 +702,8 @@ button:focus-visible {
 @media (max-width: 980px) {
   .overview,
   .controls,
-  .layout {
+  .layout,
+  .build-buttons {
     grid-template-columns: 1fr;
   }
 
@@ -539,5 +741,23 @@ button:focus-visible {
 
   .detail-hero__top {
     display: grid;
+  }
+
+  .build-panel__head {
+    display: grid;
+  }
+
+  .gear-row__button {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .gear-row__details {
+    padding: 14px;
+  }
+
+  .gear-row__details div {
+    grid-template-columns: 1fr;
+    gap: 2px;
   }
 }
